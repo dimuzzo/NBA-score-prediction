@@ -1,0 +1,10 @@
+# Ignore all files in the 'data' folder
+data/
+
+# Ignore all .pkl files in the 'model' folder
+model/*.pkl
+
+# Optional: ignore Jupyter Notebook checkpoints and Python cache
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
