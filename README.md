@@ -62,11 +62,11 @@ Select Team A as your team and Team B as the opponent.
 
 Input the following statistics for **Team A**:
 
-- FG%: 0.45
+- .FG%: 0.45
 
-- FT%: 0.75
+- .FT%: 0.75
 
-- 3PT%: 0.35
+- .3PT%: 0.35
 
 - AST: 25
 
@@ -74,11 +74,11 @@ Input the following statistics for **Team A**:
 
 Input the following statistics for **Team B**:
 
-- FG%: 0.46
+- .FG%: 0.46
 
-- FT%: 0.74
+- .FT%: 0.74
 
-- 3PT%: 0.34
+- .3PT%: 0.34
 
 - AST: 23
 
