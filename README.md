@@ -1,105 +1,79 @@
-# NBA Score Prediction
+# NBA Game Winner Prediction 🏀
 
-This project aims to predict NBA game scores using machine learning techniques. By leveraging a dataset of NBA games and player statistics, the goal is to estimate the score of a game based on the performance metrics of both teams.
+This project utilizes a deep learning model to predict the winner of NBA games based on engineered features derived from historical game statistics.
 
-## Overview
+---
+## 🗺️ Overview
 
-This project allows users to predict the score of an NBA game between two selected teams by inputting various performance statistics. The model utilizes machine learning techniques and pre-trained models to provide an estimated score for both teams involved in the game.
+The core of this project is a Keras-based neural network trained on team performance metrics. Instead of using a game's own final stats to predict its outcome (which would be data leakage), we engineer features that represent each team's form and strength *before* the game begins. This is achieved by calculating 10-game rolling averages for key statistical categories.
 
-## Features
+The project is structured into a modular pipeline that handles data preprocessing, model training, and prediction.
 
-- **Team Selection**: Choose two teams (your team and the opponent) from a dropdown list.
-- **Performance Metrics**: Input various game statistics, including:
-  - Field Goal Percentage (FG%)
-  - Free Throw Percentage (FT%)
-  - Three-Point Percentage (3PT%)
-  - Assists (AST)
-  - Rebounds (REB)
-  
-- **Score Prediction**: Based on the selected teams and the input statistics, the model predicts the final score for each team.
+---
+## 📂 Project Structure
 
-## Installation
+The project is organized to separate concerns, making it clean and maintainable.
 
-To run this project, make sure you have the following Python packages installed:
+-   `data/`: Contains all the original CSV datasets.
+-   `notebooks/`:
+    -   `data_analysis.ipynb`: For initial exploratory data analysis (EDA).
+    -   `nba_widget.ipynb`: An interactive Jupyter widget to test the trained model.
+-   `src/`: Contains the modular source code.
+    -   `config.py`: Configuration file for paths, features, and model hyperparameters.
+    -   `data_preprocessing.py`: Script for loading data and performing feature engineering (e.g., rolling averages).
+    -   `model.py`: Defines the Keras model architecture.
+    -   `train.py`: The main script to execute the model training pipeline.
+-   `predict.py`: A command-line script to make a single prediction using the saved model.
+-   `requirements.txt`: A list of the project's Python dependencies.
+-   `nba_prediction_model.keras`: The saved, trained model (generated after running the training script).
+-   `normalization_stats.json`: Saved mean/std values from the training set for consistent data normalization.
 
-- `joblib`
-- `numpy`
-- `ipywidgets`
-- `sklearn`
-- `IPython`
+---
+## 🚀 Getting Started
 
-You can install the required packages using `pip`:
+### 1. Prerequisites
+- Python 3.9-3.12
+- Git
 
+It is highly recommended to use a virtual environment.
+
+### 2. Installation
+Clone the repository and install the required dependencies:
 ```bash
-pip install joblib numpy ipywidgets scikit-learn ipython
+git clone [YOUR-REPOSITORY-URL]
+cd nba-score-prediction
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
 ```
 
-## How to Use
-- **Step 1**: Select 2 Teams
+### 3. Training the Model
+To train the model, run the `train.py` script from the project's root directory:
+```bash
+python -m src.train
+```
 
-    From the dropdown menus, select the your team and opponent team for the game.
+This command will load the data, engineer the features, train the model, and save `nba_prediction_model.keras` and `normalization_stats.json` in the root folder.
 
-- **Step 2**: Enter Statistical Data
+### 4. Making a Prediction
+You can make predictions in two ways:
 
-    For each team, adjust the sliders to input the following statistics:
-
-    - Field Goal Percentage (FG%): A percentage of successful field goals.
-
-    - Free Throw Percentage (FT%): A percentage of successful free throws.
-
-    - Three-Point Percentage (3PT%): A percentage of successful three-point shots.
-
-    - Assists (AST): Total number of assists.
-
-    - Rebounds (REB): Total number of rebounds.
-
-- **Step 3**: Predict the Score
+A) Via Command Line:
     
-    Click the Predict Score button to generate a prediction for both teams based on the input statistics. The model will process the data and provide the predicted score for both teams.
+- Modify the sample_game_data dictionary in predict.py and run the script:
+    ```bash
+    python predict.py
+    ```
 
-## Example Usage
-Select Team A as your team and Team B as the opponent.
+B) Via Interactive Widget:
 
-Input the following statistics for **Team A**:
+- Launch Jupyter Lab and open the widget notebook:
+    ```bash
+    jupyter lab notebooks/nba_widget.ipynb
+    ```
 
-- .FG%: 0.45
-
-- .FT%: 0.75
-
-- .3PT%: 0.35
-
-- AST: 25
-
-- REB: 40
-
-Input the following statistics for **Team B**:
-
-- .FG%: 0.46
-
-- .FT%: 0.74
-
-- .3PT%: 0.34
-
-- AST: 23
-
-- REB: 42
-
-Click the Predict Score button to generate the predicted score.
-
-The result will show the predicted scores for Team A and Team B based on the input statistics.
-
-## Model Details
-The model was trained using historical NBA game data, including team statistics and performance metrics. The input features used for the prediction are:
-
-- Team Encoding: Teams are encoded into numerical values using a label encoder.
-
-- Opponent Encoding: The opponent team is also encoded similarly.
-
-- Statistical Features: FG%, FT%, 3PT%, AST, and REB values.
-
-The model uses a regression technique to predict the total score for each team.
-
-## Notes
-**Model Accuracy**: The model was trained on historical data, but its predictions will depend on the quality and recency of the input data (data coverage until season 2021/2022).
-
-**Warnings**: If you encounter a warning like UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names, you can safely ignore it. This warning does not affect the accuracy of the model.
+Use the interactive sliders to input team stats and see the prediction in real-time.
