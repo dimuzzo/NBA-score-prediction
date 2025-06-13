@@ -1,0 +1,10 @@
+pandas~=2.2.2
+tensorflow
+scikit-learn
+jupyterlab
+matplotlib
+seaborn
+joblib~=1.4.2
+numpy~=1.26.4
+ipywidgets~=7.8.1
+ipython~=8.27.0
