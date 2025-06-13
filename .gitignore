@@ -8,3 +8,6 @@ model/*.pkl
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
+*.h5
+*.keras
+*.json
