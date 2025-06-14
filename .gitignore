@@ -1,6 +1,3 @@
-# Ignore all files in the 'data' folder
-data/
-
 # Ignore all .pkl files in the 'model' folder
 model/*.pkl
 
