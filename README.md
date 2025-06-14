@@ -40,7 +40,7 @@ It is highly recommended to use a virtual environment.
 ### 2. Installation
 Clone the repository and install the required dependencies:
 ```bash
-git clone [YOUR-REPOSITORY-URL]
+git clone https://github.com/dimuzzo/NBA-score-prediction.git
 cd nba-score-prediction
 python -m venv venv
 # On Windows
@@ -64,7 +64,7 @@ You can make predictions in two ways:
 
 A) Via Command Line:
     
-- Modify the sample_game_data dictionary in predict.py and run the script:
+- Modify the `sample_game_data` dictionary in `predict.py` and run the script:
     ```bash
     python predict.py
     ```
@@ -75,5 +75,14 @@ B) Via Interactive Widget:
     ```bash
     jupyter lab notebooks/nba_widget.ipynb
     ```
+- Use directly software like PyCharm.
 
 Use the interactive sliders to input team stats and see the prediction in real-time.
+
+---
+
+## 🙏 Contributions
+
+If you want to contribute to the project, feel free to fork the repository and submit a pull request!
+
+---
