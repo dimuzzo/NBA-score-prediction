@@ -1,5 +1,9 @@
 # NBA Game Winner Prediction 🏀
 
+![GitHub last commit](https://img.shields.io/github/last-commit/dimuzzo/NBA-score-prediction?style=flat-square&logo=github&label=Last%20Commit)
+![GitHub repo size](https://img.shields.io/github/repo-size/dimuzzo/NBA-score-prediction?style=flat-square&logo=github&label=Repo%20Size)
+![GitHub stars](https://img.shields.io/github/stars/dimuzzo/NBA-score-prediction?style=flat-square&logo=github&label=Stars)
+
 This project utilizes a deep learning model to predict the winner of NBA games based on engineered features derived from historical game statistics.
 
 ---
@@ -86,3 +90,5 @@ Use the interactive sliders to input team stats and see the prediction in real-t
 If you want to contribute to the project, feel free to fork the repository and submit a pull request!
 
 ---
+
+> Created with passion by [dimuzzo](https://github.com/dimuzzo)
